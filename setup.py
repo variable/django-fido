@@ -57,7 +57,7 @@ class custom_sdist(sdist):
         sdist.run(self)
 
 
-setup(name='btg-django-fido',
+setup(name='django-fido',
       version=django_fido.__version__,
       description='Django application for FIDO protocol',
       long_description=LONG_DESCRIPTION,

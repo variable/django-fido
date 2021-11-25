@@ -93,7 +93,6 @@ class Fido2PasswordlessAuthenticationBackend(BaseFido2AuthenticationBackend):
                      fido2_state: Dict[str, bytes], fido2_response: Dict[str, Any]) -> Optional[AbstractBaseUser]:
         """Authenticate using FIDO 2."""
         user_handle = base64.b64decode(fido2_response['user_handle']).decode('utf-8')
-        print(11111, user_handle)
         try:
             authenticator = Authenticator.objects.get(user_handle=user_handle)
             user = authenticator.user
