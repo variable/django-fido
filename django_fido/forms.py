@@ -43,8 +43,8 @@ class Fido2RegistrationForm(forms.Form):
         except ValueError:
             raise ValidationError(_('FIDO 2 response is malformed.'), code='invalid')
 
-    def clean_user_handle(self) -> AttestationObject:
-        """Return decoded attestation object."""
+    def clean_user_handle(self) -> str:
+        """Return decoded user_handle."""
         value = self.cleaned_data['user_handle']
         try:
             return base64.b64decode(value).decode('utf-8')
